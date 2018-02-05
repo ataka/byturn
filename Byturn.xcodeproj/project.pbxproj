@@ -11,6 +11,7 @@
 		679D197C2028CCBC00643E0A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197B2028CCBC00643E0A /* Person.swift */; };
 		679D197E2028CEB600643E0A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197D2028CEB600643E0A /* Model.swift */; };
 		679D19812028CF9E00643E0A /* Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D19802028CF9E00643E0A /* Id.swift */; };
+		679D19832028D20300643E0A /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D19822028D20300643E0A /* Location.swift */; };
 		67CC03722028C1910048091C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC03712028C1910048091C /* AppDelegate.swift */; };
 		67CC03742028C1910048091C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC03732028C1910048091C /* ViewController.swift */; };
 		67CC03772028C1910048091C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CC03752028C1910048091C /* Main.storyboard */; };
@@ -36,6 +37,7 @@
 		679D197B2028CCBC00643E0A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		679D197D2028CEB600643E0A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		679D19802028CF9E00643E0A /* Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Id.swift; sourceTree = "<group>"; };
+		679D19822028D20300643E0A /* Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		67CC036E2028C1910048091C /* Byturn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Byturn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67CC03712028C1910048091C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67CC03732028C1910048091C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 			isa = PBXGroup;
 			children = (
 				679D197D2028CEB600643E0A /* Model.swift */,
+				679D19822028D20300643E0A /* Location.swift */,
 				679D197B2028CCBC00643E0A /* Person.swift */,
 			);
 			path = Model;
@@ -402,6 +405,7 @@
 				67CC03742028C1910048091C /* ViewController.swift in Sources */,
 				67CC03722028C1910048091C /* AppDelegate.swift in Sources */,
 				679D19812028CF9E00643E0A /* Id.swift in Sources */,
+				679D19832028D20300643E0A /* Location.swift in Sources */,
 				679D197E2028CEB600643E0A /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

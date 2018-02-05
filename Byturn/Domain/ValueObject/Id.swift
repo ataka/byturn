@@ -13,6 +13,11 @@ protocol Id {
     var id: IdType { get }
 }
 
+struct LocationId: Id {
+    typealias IdType = Int
+    let id: IdType
+}
+
 struct PersonId: Id {
     typealias IdType = Int
     let id: IdType

@@ -13,9 +13,11 @@ final class Person: Model {
 
     let id: PersonId
     let name: String
+    let locationId: LocationId
 
-    init(id: PersonId, name: String) {
+    init(id: PersonId, name: String, locationId: LocationId) {
         self.id = id
         self.name = name
+        self.locationId = locationId
     }
 }
