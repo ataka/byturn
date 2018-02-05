@@ -1,5 +1,5 @@
 //
-//  Model.swift
+//  Id.swift
 //  Byturn
 //
 //  Created by 安宅 正之 on 2018/02/06.
@@ -8,7 +8,12 @@
 
 import Foundation
 
-protocol Model {
-    associatedtype IdType: Id
+protocol Id {
+    associatedtype IdType: Hashable
     var id: IdType { get }
+}
+
+struct PersonId: Id {
+    typealias IdType = Int
+    let id: IdType
 }

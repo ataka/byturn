@@ -9,10 +9,12 @@
 import Foundation
 
 final class Person: Model {
-    let id: Int
+    typealias IdType = PersonId
+
+    let id: PersonId
     let name: String
 
-    init(id: Int, name: String) {
+    init(id: PersonId, name: String) {
         self.id = id
         self.name = name
     }
