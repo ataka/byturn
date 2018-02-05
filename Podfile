@@ -5,6 +5,8 @@ target 'Byturn' do
 
   # Pods for Byturn
   pod 'RealmSwift'
+  pod 'SwiftFormat/CLI'
+  pod 'SwiftLint'
 
   target 'ByturnTests' do
     inherit! :search_paths
