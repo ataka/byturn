@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2B73ED0D920E63EB3F0C5F5E /* Pods_ByturnTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A73450E5523BD9AED28C6788 /* Pods_ByturnTests.framework */; };
+		679D197C2028CCBC00643E0A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197B2028CCBC00643E0A /* Person.swift */; };
+		679D197E2028CEB600643E0A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197D2028CEB600643E0A /* Model.swift */; };
 		67CC03722028C1910048091C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC03712028C1910048091C /* AppDelegate.swift */; };
 		67CC03742028C1910048091C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC03732028C1910048091C /* ViewController.swift */; };
 		67CC03772028C1910048091C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CC03752028C1910048091C /* Main.storyboard */; };
@@ -30,6 +32,8 @@
 /* Begin PBXFileReference section */
 		0882B2296BB8B927AD80BAE0 /* Pods-ByturnTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ByturnTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ByturnTests/Pods-ByturnTests.debug.xcconfig"; sourceTree = "<group>"; };
 		39D3A5BF4B5DD38C60236319 /* Pods_Byturn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Byturn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		679D197B2028CCBC00643E0A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		679D197D2028CEB600643E0A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		67CC036E2028C1910048091C /* Byturn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Byturn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67CC03712028C1910048091C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67CC03732028C1910048091C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,6 +70,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		679D197A2028CC8A00643E0A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				679D197D2028CEB600643E0A /* Model.swift */,
+				679D197B2028CCBC00643E0A /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		67CC03652028C1910048091C = {
 			isa = PBXGroup;
 			children = (
@@ -89,6 +102,10 @@
 		67CC03702028C1910048091C /* Byturn */ = {
 			isa = PBXGroup;
 			children = (
+				67CC03912028C8520048091C /* Interface */,
+				67CC03952028C9D90048091C /* Application */,
+				67CC03922028C8610048091C /* Domain */,
+				67CC03932028C86B0048091C /* Infrastructure */,
 				67CC03712028C1910048091C /* AppDelegate.swift */,
 				67CC03732028C1910048091C /* ViewController.swift */,
 				67CC03752028C1910048091C /* Main.storyboard */,
@@ -106,6 +123,35 @@
 				67CC03882028C1910048091C /* Info.plist */,
 			);
 			path = ByturnTests;
+			sourceTree = "<group>";
+		};
+		67CC03912028C8520048091C /* Interface */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Interface;
+			sourceTree = "<group>";
+		};
+		67CC03922028C8610048091C /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				679D197A2028CC8A00643E0A /* Model */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		67CC03932028C86B0048091C /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		67CC03952028C9D90048091C /* Application */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Application;
 			sourceTree = "<group>";
 		};
 		A0647E6385FC96D382D0FE07 /* Frameworks */ = {
@@ -341,8 +387,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				679D197C2028CCBC00643E0A /* Person.swift in Sources */,
 				67CC03742028C1910048091C /* ViewController.swift in Sources */,
 				67CC03722028C1910048091C /* AppDelegate.swift in Sources */,
+				679D197E2028CEB600643E0A /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
