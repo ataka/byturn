@@ -9,9 +9,13 @@
 import UIKit
 
 final class LocationListTableViewController: UITableViewController {
+    private var viewModel: LocationListViewModel!
+    
+    // MARK: Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = LocationListViewModel()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,13 +29,14 @@ final class LocationListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return viewModel.locations.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Location", for: indexPath)
-
-        cell.textLabel?.text = "Location \(indexPath.row)"
+        let location = viewModel.locations[indexPath.row]
+        
+        cell.textLabel?.text = location.name
 
         return cell
     }
