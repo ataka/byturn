@@ -18,8 +18,12 @@ final class LocationListViewModel {
     // Preparation
     
     private static func loadLocation() -> [Location] {
-        let locationA = Location(id: LocationId(id: 0), name: "Location A")
-        let locationB = Location(id: LocationId(id: 1), name: "Location B")
-        return [locationA, locationB]
+        guard let path = Bundle.main.path(forResource: "Location", ofType: "plist"),
+            let plist = NSArray(contentsOfFile: path) as? [[String: Any]] else { return [] }
+        return plist.flatMap {
+            guard let id = $0["id"] as? Int,
+                let name = $0["name"] as? String else { return nil }
+            return Location(id: LocationId(id: id), name: name)
+        }
     }
 }
