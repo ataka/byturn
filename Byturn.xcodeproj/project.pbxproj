@@ -115,6 +115,15 @@
 			path = LocationList;
 			sourceTree = "<group>";
 		};
+		679D198E202A128E00643E0A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				679D1984202A04D300643E0A /* Launch */,
+				679D1985202A051800643E0A /* LocationList */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		67CC03652028C1910048091C = {
 			isa = PBXGroup;
 			children = (
@@ -161,8 +170,7 @@
 		67CC03912028C8520048091C /* Interface */ = {
 			isa = PBXGroup;
 			children = (
-				679D1985202A051800643E0A /* LocationList */,
-				679D1984202A04D300643E0A /* Launch */,
+				679D198E202A128E00643E0A /* View */,
 			);
 			path = Interface;
 			sourceTree = "<group>";
