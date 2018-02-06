@@ -8,16 +8,21 @@
 
 import Foundation
 
+typealias PersonIndex = UInt
+
 final class Person: Model {
     typealias IdType = PersonId
 
     let id: PersonId
-    let name: String
     let locationId: LocationId
+    let name: String
+    let index: PersonIndex
+    private(set) var turnAts: [Date]
 
-    init(id: PersonId, name: String, locationId: LocationId) {
+    init(id: PersonId, locationId: LocationId, name: String, index: PersonIndex) {
         self.id = id
-        self.name = name
         self.locationId = locationId
+        self.name = name
+        self.index = index
     }
 }
