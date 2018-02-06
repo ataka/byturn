@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="ZYe-uh-Xqe">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="cM0-MQ-NPQ">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,23 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Location List Table View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="cwd-Hj-xWg">
+            <objects>
+                <navigationController id="cM0-MQ-NPQ" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="NgG-3R-Uxf">
+                        <rect key="frame" x="0.0" y="20" width="375" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="ZYe-uh-Xqe" kind="relationship" relationship="rootViewController" id="ckr-It-M8y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OE6-VS-kja" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1902" y="41"/>
+        </scene>
+        <!--Locations-->
         <scene sceneID="rHW-4J-Due">
             <objects>
                 <tableViewController id="ZYe-uh-Xqe" customClass="LocationListTableViewController" customModule="Byturn" customModuleProvider="target" sceneMemberID="viewController">
@@ -41,10 +57,11 @@
                             <outlet property="delegate" destination="ZYe-uh-Xqe" id="iJf-Tb-57w"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Locations" id="f4n-fB-cTW"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oVq-Sy-3Vg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-284" y="41"/>
+            <point key="canvasLocation" x="-1039" y="41"/>
         </scene>
     </scenes>
 </document>
