@@ -19,10 +19,17 @@ final class Person: Model {
     let index: PersonIndex
     private(set) var turnAts: [Date]
 
-    init(id: PersonId, locationId: LocationId, name: String, index: PersonIndex) {
+    init(id: PersonId, locationId: LocationId, name: String, index: PersonIndex, turnAts: [Date]) {
         self.id = id
         self.locationId = locationId
         self.name = name
         self.index = index
+        self.turnAts = turnAts
+    }
+    
+    // Action
+    
+    func recordTurn() {
+        turnAts.append(Date())
     }
 }
