@@ -11,8 +11,8 @@ import Foundation
 final class PersonListViewModel {
     let people: [Person]
     
-    init() {
-        self.people = PersonListViewModel.loadPeople()
+    init(locationId: LocationId) {
+        self.people = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }
     }
     
     // Preparation
