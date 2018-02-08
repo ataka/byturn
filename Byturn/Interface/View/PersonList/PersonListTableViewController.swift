@@ -9,6 +9,8 @@
 import UIKit
 
 class PersonListTableViewController: UITableViewController {
+    @IBOutlet weak var doneButton: UIBarButtonItem!
+    
     private var viewModel: PersonListViewModel!
 
     override func viewDidLoad() {

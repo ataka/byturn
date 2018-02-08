@@ -57,7 +57,12 @@
                             <outlet property="delegate" destination="iaS-0E-a88" id="Bfx-EC-sfx"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="People" id="1kw-x2-7sS"/>
+                    <navigationItem key="navigationItem" title="People" id="1kw-x2-7sS">
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FcO-C2-4nO"/>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneButton" destination="FcO-C2-4nO" id="NFU-Xc-7a1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R4s-99-77l" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
