@@ -1,17 +1,15 @@
 //
-//  LocationListTableViewController.swift
+//  PersonListTableViewController.swift
 //  Byturn
 //
-//  Created by 安宅 正之 on 2018/02/07.
+//  Created by 安宅 正之 on 2018/02/08.
 //  Copyright © 2018年 WelltempRed. All rights reserved.
 //
 
 import UIKit
 
-final class LocationListTableViewController: UITableViewController {
+class PersonListTableViewController: UITableViewController {
     private var viewModel: LocationListViewModel!
-    
-    // MARK: Life cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +18,11 @@ final class LocationListTableViewController: UITableViewController {
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    static func instantiateViewController() -> PersonListTableViewController {
+        let storyboard = UIStoryboard(name: "PersonList", bundle: nil)
+        return storyboard.instantiateViewController(withIdentifier: "PersonList") as! PersonListTableViewController
     }
 
     // MARK: - Table view data source
@@ -37,13 +40,7 @@ final class LocationListTableViewController: UITableViewController {
         let location = viewModel.locations[indexPath.row]
         
         cell.textLabel?.text = location.name
-
+        
         return cell
-    }
-    
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let locationId = viewModel.locations[indexPath.row].id
-        let viewController = PersonListTableViewController.instantiateViewController()
-        navigationController?.pushViewController(viewController, animated: true)
     }
 }
