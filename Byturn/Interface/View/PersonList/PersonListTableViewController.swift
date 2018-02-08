@@ -37,11 +37,22 @@ class PersonListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Location", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Person", for: indexPath)
         let person = viewModel.people[indexPath.row]
         
         cell.textLabel?.text = person.name
         
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.cellForRow(at: indexPath) else { return }
+        
+        cell.accessoryType = {
+            let isSelected = cell.accessoryType == .checkmark
+            return isSelected ? .none : .checkmark
+        }()
+        
+        tableView.deselectRow(at: indexPath, animated: true)
     }
 }
