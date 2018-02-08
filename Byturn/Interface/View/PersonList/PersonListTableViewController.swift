@@ -9,20 +9,21 @@
 import UIKit
 
 class PersonListTableViewController: UITableViewController {
-    private var viewModel: LocationListViewModel!
+    private var viewModel: PersonListViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel = LocationListViewModel()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
     
-    static func instantiateViewController() -> PersonListTableViewController {
+    static func instantiateViewController(viewModel: PersonListViewModel) -> PersonListTableViewController {
         let storyboard = UIStoryboard(name: "PersonList", bundle: nil)
-        return storyboard.instantiateViewController(withIdentifier: "PersonList") as! PersonListTableViewController
+        let viewController = storyboard.instantiateViewController(withIdentifier: "PersonList") as! PersonListTableViewController
+        viewController.viewModel = viewModel
+        return viewController
     }
 
     // MARK: - Table view data source
@@ -32,14 +33,14 @@ class PersonListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.locations.count
+        return viewModel.people.count
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Location", for: indexPath)
-        let location = viewModel.locations[indexPath.row]
+        let person = viewModel.people[indexPath.row]
         
-        cell.textLabel?.text = location.name
+        cell.textLabel?.text = person.name
         
         return cell
     }

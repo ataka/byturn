@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias PersonIndex = UInt
+typealias PersonOrder = UInt
 
 final class Person: Model {
     typealias IdType = PersonId
@@ -16,14 +16,14 @@ final class Person: Model {
     let id: PersonId
     let locationId: LocationId
     let name: String
-    let index: PersonIndex
+    let order: PersonOrder
     private(set) var turnAts: [Date]
 
-    init(id: PersonId, locationId: LocationId, name: String, index: PersonIndex, turnAts: [Date]) {
+    init(id: PersonId, locationId: LocationId, name: String, order: PersonOrder, turnAts: [Date]) {
         self.id = id
         self.locationId = locationId
         self.name = name
-        self.index = index
+        self.order = order
         self.turnAts = turnAts
     }
     

@@ -18,6 +18,7 @@
 		679D198D202A0CC300643E0A /* Location.plist in Resources */ = {isa = PBXBuildFile; fileRef = 679D198C202A0CC300643E0A /* Location.plist */; };
 		679D1990202A1A2700643E0A /* PersonList.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 679D198F202A1A2700643E0A /* PersonList.storyboard */; };
 		679D1993202B5D4000643E0A /* PersonListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D1992202B5D4000643E0A /* PersonListTableViewController.swift */; };
+		679D1995202C094100643E0A /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D1994202C094100643E0A /* PersonListViewModel.swift */; };
 		67CC03722028C1910048091C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC03712028C1910048091C /* AppDelegate.swift */; };
 		67CC03792028C1910048091C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67CC03782028C1910048091C /* Assets.xcassets */; };
 		67CC037C2028C1910048091C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CC037A2028C1910048091C /* LaunchScreen.storyboard */; };
@@ -48,6 +49,7 @@
 		679D198C202A0CC300643E0A /* Location.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Location.plist; sourceTree = "<group>"; };
 		679D198F202A1A2700643E0A /* PersonList.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = PersonList.storyboard; sourceTree = "<group>"; };
 		679D1992202B5D4000643E0A /* PersonListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListTableViewController.swift; sourceTree = "<group>"; };
+		679D1994202C094100643E0A /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
 		67CC036E2028C1910048091C /* Byturn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Byturn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67CC03712028C1910048091C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67CC03782028C1910048091C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -134,6 +136,7 @@
 			children = (
 				679D198F202A1A2700643E0A /* PersonList.storyboard */,
 				679D1992202B5D4000643E0A /* PersonListTableViewController.swift */,
+				679D1994202C094100643E0A /* PersonListViewModel.swift */,
 			);
 			path = PersonList;
 			sourceTree = "<group>";
@@ -455,6 +458,7 @@
 				679D19832028D20300643E0A /* Location.swift in Sources */,
 				679D198B202A08A000643E0A /* LocationListViewModel.swift in Sources */,
 				679D197E2028CEB600643E0A /* Model.swift in Sources */,
+				679D1995202C094100643E0A /* PersonListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
