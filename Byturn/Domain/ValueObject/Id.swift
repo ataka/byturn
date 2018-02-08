@@ -8,9 +8,14 @@
 
 import Foundation
 
-protocol Id {
+protocol Id: Equatable {
     associatedtype IdType: Hashable
     var id: IdType { get }
+}
+extension Id {
+    static func ==(lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
+    }
 }
 
 struct LocationId: Id {
