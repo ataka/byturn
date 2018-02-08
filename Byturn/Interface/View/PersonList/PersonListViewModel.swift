@@ -9,10 +9,10 @@
 import Foundation
 
 final class PersonListViewModel {
-    let people: [Person]
+    let people: [PersonCellViewModel]
     
     init(locationId: LocationId) {
-        self.people = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }
+        self.people = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }.map(PersonCellViewModel.init)
     }
     
     // Preparation
