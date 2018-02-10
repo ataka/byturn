@@ -25,16 +25,16 @@ final class LocationListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.locations.count
+        return viewModel.numberOfRows(at: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Location", for: indexPath)
-        let location = viewModel.locations[indexPath.row]
+        let location = viewModel.dataSource[indexPath.row]
         
         cell.textLabel?.text = location.name
 
@@ -42,7 +42,7 @@ final class LocationListTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let locationId = self.viewModel.locations[indexPath.row].id
+        let locationId = self.viewModel.dataSource[indexPath.row].id
         let viewModel = PersonListViewModel(locationId: locationId)
         let viewController = PersonListTableViewController.instantiateViewController(viewModel: viewModel)
         navigationController?.pushViewController(viewController, animated: true)

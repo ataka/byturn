@@ -21,6 +21,7 @@
 		679D1995202C094100643E0A /* PersonListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D1994202C094100643E0A /* PersonListViewModel.swift */; };
 		679D1997202C0F9500643E0A /* Person.plist in Resources */ = {isa = PBXBuildFile; fileRef = 679D1996202C0F9500643E0A /* Person.plist */; };
 		679D1999202CB61B00643E0A /* PersonCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D1998202CB61B00643E0A /* PersonCellViewModel.swift */; };
+		679D199C202EACC700643E0A /* ListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D199B202EACC700643E0A /* ListViewModel.swift */; };
 		67CC03722028C1910048091C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67CC03712028C1910048091C /* AppDelegate.swift */; };
 		67CC03792028C1910048091C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 67CC03782028C1910048091C /* Assets.xcassets */; };
 		67CC037C2028C1910048091C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 67CC037A2028C1910048091C /* LaunchScreen.storyboard */; };
@@ -54,6 +55,7 @@
 		679D1994202C094100643E0A /* PersonListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListViewModel.swift; sourceTree = "<group>"; };
 		679D1996202C0F9500643E0A /* Person.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Person.plist; sourceTree = "<group>"; };
 		679D1998202CB61B00643E0A /* PersonCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonCellViewModel.swift; sourceTree = "<group>"; };
+		679D199B202EACC700643E0A /* ListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewModel.swift; sourceTree = "<group>"; };
 		67CC036E2028C1910048091C /* Byturn.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Byturn.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		67CC03712028C1910048091C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		67CC03782028C1910048091C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		679D198E202A128E00643E0A /* View */ = {
 			isa = PBXGroup;
 			children = (
+				679D199A202EACAF00643E0A /* Common */,
 				679D1984202A04D300643E0A /* Launch */,
 				679D1985202A051800643E0A /* LocationList */,
 				679D1991202A1A3000643E0A /* PersonList */,
@@ -144,6 +147,14 @@
 				679D1998202CB61B00643E0A /* PersonCellViewModel.swift */,
 			);
 			path = PersonList;
+			sourceTree = "<group>";
+		};
+		679D199A202EACAF00643E0A /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				679D199B202EACC700643E0A /* ListViewModel.swift */,
+			);
+			path = Common;
 			sourceTree = "<group>";
 		};
 		67CC03652028C1910048091C = {
@@ -471,6 +482,7 @@
 				679D197E2028CEB600643E0A /* Model.swift in Sources */,
 				679D1995202C094100643E0A /* PersonListViewModel.swift in Sources */,
 				679D1999202CB61B00643E0A /* PersonCellViewModel.swift in Sources */,
+				679D199C202EACC700643E0A /* ListViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

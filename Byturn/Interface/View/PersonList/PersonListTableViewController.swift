@@ -47,16 +47,16 @@ class PersonListTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return viewModel.numberOfSections()
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.people.count
+        return viewModel.numberOfRows(at: section)
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Person", for: indexPath)
-        let person = viewModel.people[indexPath.row]
+        let person = viewModel.dataSource[indexPath.row]
         
         cell.textLabel?.text = person.name
         
@@ -65,7 +65,7 @@ class PersonListTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        let person = viewModel.people[indexPath.row]
+        let person = viewModel.dataSource[indexPath.row]
         
         cell.accessoryType = {
             viewModel.toggleSelect(person: person)

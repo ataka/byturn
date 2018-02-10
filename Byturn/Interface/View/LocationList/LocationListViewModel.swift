@@ -8,11 +8,11 @@
 
 import Foundation
 
-final class LocationListViewModel {
-    let locations: [Location]
-    
+final class LocationListViewModel: ListViewModel {
+    typealias SourceType = Location
+    let dataSource: [Location]
     init() {
-        self.locations = LocationListViewModel.loadLocation()
+        self.dataSource = LocationListViewModel.loadLocation()
     }
     
     // Preparation

@@ -9,8 +9,9 @@
 import Foundation
 import RxCocoa
 
-final class PersonListViewModel {
-    let people: [PersonCellViewModel]
+final class PersonListViewModel: ListViewModel {
+    typealias SourceType = PersonCellViewModel
+    let dataSource: [PersonCellViewModel]
     let canSave: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var selectedCount: Int = 0 {
         didSet {
@@ -19,10 +20,10 @@ final class PersonListViewModel {
     }
     
     init(locationId: LocationId) {
-        self.people = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }.map(PersonCellViewModel.init)
+        self.dataSource = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }.map(PersonCellViewModel.init)
     }
     
-    // Preparation
+    // MARK: - Preparation
     
     private static func loadPeople() -> [Person] {
         guard let path = Bundle.main.path(forResource: "Person", ofType: "plist"),
