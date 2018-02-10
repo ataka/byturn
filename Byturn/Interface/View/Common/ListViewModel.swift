@@ -19,8 +19,8 @@ extension ListViewModel {
     func numberOfSections() -> Int {
         return 1
     }
-    
-    func numberOfRows(at section: Int) -> Int {
+
+    func numberOfRows(at _: Int) -> Int {
         return dataSource.count
     }
 }

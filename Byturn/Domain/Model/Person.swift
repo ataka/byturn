@@ -26,9 +26,9 @@ final class Person: Model {
         self.order = order
         self.turnAts = turnAts
     }
-    
+
     // Action
-    
+
     func recordTurn() {
         turnAts.append(Date())
     }

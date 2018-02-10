@@ -12,11 +12,11 @@ final class LocationListViewModel: ListViewModel {
     typealias SourceType = Location
     let dataSource: [Location]
     init() {
-        self.dataSource = LocationListViewModel.loadLocation()
+        dataSource = LocationListViewModel.loadLocation()
     }
-    
+
     // Preparation
-    
+
     private static func loadLocation() -> [Location] {
         guard let path = Bundle.main.path(forResource: "Location", ofType: "plist"),
             let plist = NSArray(contentsOfFile: path) as? [[String: Any]] else { return [] }

@@ -11,19 +11,19 @@ import Foundation
 final class PersonCellViewModel {
     private let person: Person
     var isSelected: Bool = false
-    
+
     init(person: Person) {
         self.person = person
     }
-    
+
     // MARK: - Computed Property
-    
+
     var name: String {
         return person.name
     }
-    
+
     // MARK: - Selected
-    
+
     func toggleSelect() {
         isSelected = !isSelected
     }

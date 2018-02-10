@@ -18,13 +18,13 @@ final class PersonListViewModel: ListViewModel {
             canSave.accept(selectedCount > 0)
         }
     }
-    
+
     init(locationId: LocationId) {
-        self.dataSource = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }.map(PersonCellViewModel.init)
+        dataSource = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }.map(PersonCellViewModel.init)
     }
-    
+
     // MARK: - Preparation
-    
+
     private static func loadPeople() -> [Person] {
         guard let path = Bundle.main.path(forResource: "Person", ofType: "plist"),
             let plist = NSArray(contentsOfFile: path) as? [[String: Any]] else { return [] }
@@ -33,12 +33,12 @@ final class PersonListViewModel: ListViewModel {
                 let locationId = $0["locationId"] as? Int,
                 let name = $0["name"] as? String,
                 let order = $0["order"] as? PersonOrder else { return nil }
-            return Person.init(id: PersonId(id: id), locationId: LocationId(id: locationId), name: name, order: order, turnAts: [])
+            return Person(id: PersonId(id: id), locationId: LocationId(id: locationId), name: name, order: order, turnAts: [])
         }
     }
-    
+
     // MARK: - Select
-    
+
     func toggleSelect(person: PersonCellViewModel) {
         person.toggleSelect()
         selectedCount += person.isSelected ? +1 : -1

@@ -265,6 +265,7 @@
 				67CC036C2028C1910048091C /* Resources */,
 				52D66773E6DB41D49C4F1B5A /* [CP] Embed Pods Frameworks */,
 				7D694E46AE7BE424F6E98363 /* [CP] Copy Pods Resources */,
+				679D199D202EB1A600643E0A /* Run SwiftFormat */,
 			);
 			buildRules = (
 			);
@@ -416,6 +417,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Byturn/Pods-Byturn-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		679D199D202EB1A600643E0A /* Run SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftFormat";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftFormat/CommandLineTool/swiftformat\" \"${SRCROOT}/Byturn\"";
 		};
 		742436B805E41B6D54F7E7C5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
