@@ -7,9 +7,16 @@
 //
 
 import Foundation
+import RxCocoa
 
 final class PersonListViewModel {
     let people: [PersonCellViewModel]
+    let canSave: BehaviorRelay<Bool> = BehaviorRelay(value: false)
+    var selectedCount: Int = 0 {
+        didSet {
+            canSave.accept(selectedCount > 0)
+        }
+    }
     
     init(locationId: LocationId) {
         self.people = PersonListViewModel.loadPeople().filter { $0.locationId == locationId }.map(PersonCellViewModel.init)
@@ -27,5 +34,12 @@ final class PersonListViewModel {
                 let order = $0["order"] as? PersonOrder else { return nil }
             return Person.init(id: PersonId(id: id), locationId: LocationId(id: locationId), name: name, order: order, turnAts: [])
         }
+    }
+    
+    // MARK: - Select
+    
+    func toggleSelect(person: PersonCellViewModel) {
+        person.toggleSelect()
+        selectedCount += person.isSelected ? +1 : -1
     }
 }

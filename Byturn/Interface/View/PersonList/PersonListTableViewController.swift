@@ -7,25 +7,41 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class PersonListTableViewController: UITableViewController {
     @IBOutlet weak var doneButton: UIBarButtonItem!
     
+    private let disposeBag = DisposeBag()
     private var viewModel: PersonListViewModel!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
+    
+    // MARK: - Life Cycle
     
     static func instantiateViewController(viewModel: PersonListViewModel) -> PersonListTableViewController {
         let storyboard = UIStoryboard(name: "PersonList", bundle: nil)
         let viewController = storyboard.instantiateViewController(withIdentifier: "PersonList") as! PersonListTableViewController
         viewController.viewModel = viewModel
         return viewController
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        prepareRxBinding()
+    }
+
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+
+    // MARK: Preparation
+    
+    private func prepareRxBinding() {
+        viewModel.canSave.asObservable()
+            .subscribeOn(ConcurrentMainScheduler.instance)
+            .observeOn(MainScheduler.instance)
+            .bind(to: doneButton.rx.isEnabled)
+            .disposed(by: disposeBag)
     }
 
     // MARK: - Table view data source
@@ -52,7 +68,7 @@ class PersonListTableViewController: UITableViewController {
         let person = viewModel.people[indexPath.row]
         
         cell.accessoryType = {
-            person.toggleSelect()
+            viewModel.toggleSelect(person: person)
             return person.isSelected ? .checkmark : .none
         }()
         
