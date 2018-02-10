@@ -5,6 +5,7 @@ target 'Byturn' do
 
   # Pods for Byturn
   pod 'RealmSwift'
+  pod 'RxCocoa'
   pod 'RxSwift'
   pod 'SwiftFormat/CLI'
   pod 'SwiftLint'
