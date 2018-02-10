@@ -9,18 +9,23 @@
 import Foundation
 
 protocol ListViewModel {
-    associatedtype SourceType
-    var dataSource: [SourceType] { get }
-    func numberOfSections() -> Int
+    associatedtype DataSource: DataSourceType
+    var dataSource: DataSource { get }
+    var numberOfSections: Int { get }
     func numberOfRows(at section: Int) -> Int
+    func source(at indexPath: IndexPath) -> DataSource.SectionType.RowType
 }
 
 extension ListViewModel {
-    func numberOfSections() -> Int {
-        return 1
+    var numberOfSections: Int {
+        return dataSource.numberOfSections
     }
 
-    func numberOfRows(at _: Int) -> Int {
-        return dataSource.count
+    func numberOfRows(at section: Int) -> Int {
+        return dataSource.numberOfRows(in: section)
+    }
+
+    func source(at indexPath: IndexPath) -> DataSource.SectionType.RowType {
+        return dataSource.source(at: indexPath)
     }
 }

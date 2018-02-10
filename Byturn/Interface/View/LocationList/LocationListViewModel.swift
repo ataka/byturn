@@ -9,10 +9,12 @@
 import Foundation
 
 final class LocationListViewModel: ListViewModel {
-    typealias SourceType = Location
-    let dataSource: [Location]
+    typealias DataSourceType = DataSource2d<Location>
+
+    let dataSource: DataSource2d<Location>
+
     init() {
-        dataSource = LocationListViewModel.loadLocation()
+        dataSource = DataSource2d<Location>(dataSource: LocationListViewModel.loadLocation())
     }
 
     // Preparation
