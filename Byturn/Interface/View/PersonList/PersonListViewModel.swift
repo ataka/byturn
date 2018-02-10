@@ -20,8 +20,9 @@ final class PersonListViewModel: ListViewModel {
     }
 
     init(locationId: LocationId) {
-        dataSource = DataSource2d<PersonCellViewModel>(
-            dataSource: PersonListViewModel.loadPeople().filter { $0.locationId == locationId }.map(PersonCellViewModel.init))
+        dataSource = DataSource2d<PersonCellViewModel>(rows: PersonListViewModel.loadPeople()
+            .filter { $0.locationId == locationId }
+            .map(PersonCellViewModel.init))
     }
 
     // MARK: - Preparation

@@ -10,11 +10,14 @@ import Foundation
 
 protocol DataSourceType {
     associatedtype SectionType: DataSectionType
+    typealias Row = SectionType.RowType
+    init(sections: [SectionType])
     var sections: [SectionType] { get }
 
     var numberOfSections: Int { get }
     func numberOfRows(in section: Int) -> Int
-    func source(at indexPath: IndexPath) -> SectionType.RowType
+    func source(at indexPath: IndexPath) -> Row
+    func filter(_ isIncluded: (_ row: Row) throws -> Bool) -> Self
 }
 
 extension DataSourceType {
@@ -26,18 +29,24 @@ extension DataSourceType {
         return sections[section].numberOfRows
     }
 
-    func source(at indexPath: IndexPath) -> SectionType.RowType {
+    func source(at indexPath: IndexPath) -> Row {
         return sections[indexPath.section].source(at: indexPath)
+    }
+
+    func filter(_ isIncluded: (_ row: Row) throws -> Bool) -> Self {
+        return Self(sections: sections.flatMap { $0.filter(isIncluded) })
     }
 }
 
 protocol DataSectionType {
     associatedtype RowType
+    init(name: String, rows: [RowType])
     var name: String { get }
     var rows: [RowType] { get }
 
     var numberOfRows: Int { get }
     func source(at: IndexPath) -> RowType
+    func filter(_ isIncluded: (_ row: RowType) throws -> Bool) -> Self?
 }
 
 extension DataSectionType {
@@ -48,20 +57,39 @@ extension DataSectionType {
     func source(at indexPath: IndexPath) -> RowType {
         return rows[indexPath.row]
     }
-}
 
-final class DataSource2d<T>: DataSourceType {
-    typealias SectionType = DataSection<T>
-    var sections: [SectionType]
-
-    init(dataSource: [T]) {
-        let sectionObject = DataSection<T>(rows: dataSource)
-        sections = [sectionObject]
+    func filter(_ isIncluded: (_ row: RowType) throws -> Bool) -> Self? {
+        let rows = (try? self.rows.filter(isIncluded)) ?? []
+        return rows.isEmpty ? nil : Self(name: name, rows: rows)
     }
 }
 
-final class DataSection<T>: DataSectionType {
-    typealias RowType = T
+final class DataSource2d<Source>: DataSourceType {
+    typealias SectionType = DataSection<Source>
+    var sections: [SectionType]
+
+    init(sections: [SectionType]) {
+        self.sections = sections
+    }
+
+    convenience init(section: SectionType) {
+        self.init(sections: [section])
+    }
+
+    convenience init(rows: [Source]) {
+        self.init(section: DataSection<Source>(rows: rows))
+    }
+
+    /// Alias initializer of init(rows:)
+    ///
+    /// - Parameter sources: Array of source (aka. row)
+    convenience init(sources: [Source]) {
+        self.init(rows: sources)
+    }
+}
+
+final class DataSection<Source>: DataSectionType {
+    typealias RowType = Source
     let name: String
     var rows: [RowType]
 

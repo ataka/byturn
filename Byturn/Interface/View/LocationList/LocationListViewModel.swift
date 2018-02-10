@@ -14,7 +14,7 @@ final class LocationListViewModel: ListViewModel {
     let dataSource: DataSource2d<Location>
 
     init() {
-        dataSource = DataSource2d<Location>(dataSource: LocationListViewModel.loadLocation())
+        dataSource = DataSource2d<Location>(rows: LocationListViewModel.loadLocation())
     }
 
     // Preparation
