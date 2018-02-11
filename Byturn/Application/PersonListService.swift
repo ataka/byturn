@@ -13,4 +13,14 @@ struct PersonListService {
         let allPeople = ApplicationContext.shared.personRealmRepository.findAll()
         return allPeople.filter(Person.filter(byLocation: locationId))
     }
+
+    static func record(personIds: [PersonId]) {
+        let personRepository = ApplicationContext.shared.personRealmRepository
+        let people = personRepository.find(byIds: personIds)
+        let date = Date()
+        people.forEach {
+            $0.record(date: date)
+        }
+        personRepository.save(people)
+    }
 }

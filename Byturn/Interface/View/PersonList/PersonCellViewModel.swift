@@ -9,11 +9,13 @@
 import Foundation
 
 final class PersonCellViewModel {
-    let person: Person
+    private let person: Person
+    let personId: PersonId
     var isSelected: Bool = false
 
     init(person: Person) {
         self.person = person
+        personId = person.id
         isSelected = !person.records.isEmpty
     }
 

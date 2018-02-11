@@ -36,11 +36,7 @@ final class PersonListViewModel: ListViewModel {
     // MARK: - Action
 
     func record() {
-        let selectedPeople = rawDataSource.filter { $0.isSelected }.map { $0.person }
-        let date = Date()
-        selectedPeople.forEach {
-            $0.record(date: date)
-        }
-        ApplicationContext.shared.personRealmRepository.save(selectedPeople)
+        let personIds = rawDataSource.filter { $0.isSelected }.map { $0.personId }
+        PersonListService.record(personIds: personIds)
     }
 }
