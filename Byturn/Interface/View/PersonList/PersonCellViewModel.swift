@@ -31,8 +31,6 @@ final class PersonCellViewModel {
     // MARK: - Search
 
     static func filterByName(keywords: [String]) -> (_ personCellViewModel: PersonCellViewModel) -> Bool {
-        return { personCellViewModel in
-            keywords.contains { personCellViewModel.name.contains($0) }
-        }
+        return { Person.filterByName($0.person, keywords: keywords) }
     }
 }

@@ -32,4 +32,10 @@ final class Person: Model {
     func recordTurn() {
         turnAts.append(Date())
     }
+
+    // Domain Logic
+
+    static func filterByName(_ person: Person, keywords: [String]) -> Bool {
+        return keywords.contains { person.name.localizedStandardContains($0) }
+    }
 }
