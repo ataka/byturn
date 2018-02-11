@@ -41,6 +41,7 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
         navigationItem.searchController = {
             let search = UISearchController(searchResultsController: nil)
             search.searchResultsUpdater = self
+            search.dimsBackgroundDuringPresentation = false
             return search
         }()
     }
