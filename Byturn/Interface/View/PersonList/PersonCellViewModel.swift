@@ -11,18 +11,14 @@ import Foundation
 final class PersonCellViewModel {
     private let person: Person
     let personId: PersonId
+    let name: String
     var isSelected: Bool = false
 
     init(person: Person) {
         self.person = person
         personId = person.id
+        name = person.name
         isSelected = !person.records.isEmpty
-    }
-
-    // MARK: - Computed Property
-
-    var name: String {
-        return person.name
     }
 
     // MARK: - Selected
