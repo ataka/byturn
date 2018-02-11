@@ -16,7 +16,7 @@ protocol ListViewModel {
     var numberOfSections: Int { get }
     func numberOfRows(at section: Int) -> Int
     func source(at indexPath: IndexPath) -> Source
-    mutating func search(by keywords: [String], where predicate: (_ source: Source, _ keywords: [String]) -> Bool)
+    mutating func search(by keywords: [String], where predicate: (_ source: Source) -> Bool)
 }
 
 extension ListViewModel {
@@ -32,11 +32,11 @@ extension ListViewModel {
         return dataSource.source(at: indexPath)
     }
 
-    mutating func search(by keywords: [String], where predicate: (_ source: Source, _ keywords: [String]) -> Bool) {
+    mutating func search(by keywords: [String], where predicate: (_ source: Source) -> Bool) {
         if keywords.isEmpty {
             dataSource = rawDataSource
         } else {
-            dataSource = rawDataSource.filter { predicate($0, keywords) }
+            dataSource = rawDataSource.filter(predicate)
         }
     }
 }

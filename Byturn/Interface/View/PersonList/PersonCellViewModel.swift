@@ -27,4 +27,12 @@ final class PersonCellViewModel {
     func toggleSelect() {
         isSelected = !isSelected
     }
+
+    // MARK: - Search
+
+    static func filterByName(keywords: [String]) -> (_ personCellViewModel: PersonCellViewModel) -> Bool {
+        return { personCellViewModel in
+            keywords.contains { personCellViewModel.name.contains($0) }
+        }
+    }
 }

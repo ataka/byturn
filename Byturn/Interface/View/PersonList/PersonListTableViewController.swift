@@ -10,7 +10,7 @@ import RxCocoa
 import RxSwift
 import UIKit
 
-class PersonListTableViewController: UITableViewController {
+class PersonListTableViewController: UITableViewController, UISearchResultsUpdating {
     @IBOutlet var doneButton: UIBarButtonItem!
 
     private let disposeBag = DisposeBag()
@@ -27,6 +27,7 @@ class PersonListTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        prepareView()
         prepareRxBinding()
     }
 
@@ -35,6 +36,14 @@ class PersonListTableViewController: UITableViewController {
     }
 
     // MARK: Preparation
+
+    private func prepareView() {
+        navigationItem.searchController = {
+            let search = UISearchController(searchResultsController: nil)
+            search.searchResultsUpdater = self
+            return search
+        }()
+    }
 
     private func prepareRxBinding() {
         viewModel.canSave.asObservable()
@@ -73,5 +82,16 @@ class PersonListTableViewController: UITableViewController {
         }()
 
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+
+    // MARK: - UISearchResultsUpdating
+
+    func updateSearchResults(for searchController: UISearchController) {
+        defer {
+            tableView.reloadData()
+        }
+        guard let text = searchController.searchBar.text else { return }
+        let keywoards = text.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespaces).filter { !$0.isEmpty }
+        viewModel.search(by: keywoards, where: PersonCellViewModel.filterByName(keywords: keywoards))
     }
 }
