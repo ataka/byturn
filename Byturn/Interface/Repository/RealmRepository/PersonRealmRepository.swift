@@ -15,9 +15,13 @@ struct PersonRealmRepository: RealmRepository {
 
     let client: RealmClient
 
+    // MARK: - Initializer
+
     init(client: RealmClient) {
         self.client = client
     }
+
+    // MARK: - Convert
 
     func convert(from model: Person) -> PersonObject? {
         return PersonObject(id: model.id.id,

@@ -38,9 +38,7 @@ final class PersonListViewModel: ListViewModel {
     }
 
     private static func load(fromRealm _: Void) -> [Person] {
-        let client = RealmClient(config: RealmClient.configuration(for: "foo"))
-        let repository = PersonRealmRepository(client: client)
-        return repository.findAll()
+        return ApplicationContext.shared.personRealmRepository.findAll()
     }
 
     private static func load(fromPlist _: Void) -> [Person] {
@@ -61,8 +59,6 @@ final class PersonListViewModel: ListViewModel {
         person.toggleSelect()
         selectedCount += person.isSelected ? +1 : -1
 
-        let client = RealmClient(config: RealmClient.configuration(for: "foo"))
-        let repository = PersonRealmRepository(client: client)
-        repository.save([person.person])
+        ApplicationContext.shared.personRealmRepository.save([person.person])
     }
 }

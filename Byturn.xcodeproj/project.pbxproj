@@ -14,6 +14,8 @@
 		67371895203065000028F786 /* RealmClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67371894203065000028F786 /* RealmClient.swift */; };
 		67371897203068D90028F786 /* ModelObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67371896203068D90028F786 /* ModelObject.swift */; };
 		67371899203069280028F786 /* PersonObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67371898203069280028F786 /* PersonObject.swift */; };
+		6737189B20309DEC0028F786 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737189A20309DEC0028F786 /* RepositoryManager.swift */; };
+		6737189E20309FA60028F786 /* ApplicationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737189D20309FA60028F786 /* ApplicationContext.swift */; };
 		679D197C2028CCBC00643E0A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197B2028CCBC00643E0A /* Person.swift */; };
 		679D197E2028CEB600643E0A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197D2028CEB600643E0A /* Model.swift */; };
 		679D19812028CF9E00643E0A /* Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D19802028CF9E00643E0A /* Id.swift */; };
@@ -55,6 +57,8 @@
 		67371894203065000028F786 /* RealmClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmClient.swift; sourceTree = "<group>"; };
 		67371896203068D90028F786 /* ModelObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelObject.swift; sourceTree = "<group>"; };
 		67371898203069280028F786 /* PersonObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonObject.swift; sourceTree = "<group>"; };
+		6737189A20309DEC0028F786 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
+		6737189D20309FA60028F786 /* ApplicationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContext.swift; sourceTree = "<group>"; };
 		679D197B2028CCBC00643E0A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		679D197D2028CEB600643E0A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		679D19802028CF9E00643E0A /* Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Id.swift; sourceTree = "<group>"; };
@@ -137,6 +141,15 @@
 				67371894203065000028F786 /* RealmClient.swift */,
 			);
 			path = RealmClient;
+			sourceTree = "<group>";
+		};
+		6737189C20309F8F0028F786 /* ApplicationContext */ = {
+			isa = PBXGroup;
+			children = (
+				6737189D20309FA60028F786 /* ApplicationContext.swift */,
+				6737189A20309DEC0028F786 /* RepositoryManager.swift */,
+			);
+			path = ApplicationContext;
 			sourceTree = "<group>";
 		};
 		679D197A2028CC8A00643E0A /* Model */ = {
@@ -272,6 +285,7 @@
 		67CC03932028C86B0048091C /* Infrastructure */ = {
 			isa = PBXGroup;
 			children = (
+				6737189C20309F8F0028F786 /* ApplicationContext */,
 				67371893203064E90028F786 /* RealmClient */,
 				6737188B203064010028F786 /* ModelObject */,
 			);
@@ -544,6 +558,7 @@
 				679D1989202A057400643E0A /* LocationListTableViewController.swift in Sources */,
 				679D197C2028CCBC00643E0A /* Person.swift in Sources */,
 				67CC03722028C1910048091C /* AppDelegate.swift in Sources */,
+				6737189B20309DEC0028F786 /* RepositoryManager.swift in Sources */,
 				67371892203064950028F786 /* PersonRealmRepository.swift in Sources */,
 				679D19812028CF9E00643E0A /* Id.swift in Sources */,
 				67371897203068D90028F786 /* ModelObject.swift in Sources */,
@@ -555,6 +570,7 @@
 				679D197E2028CEB600643E0A /* Model.swift in Sources */,
 				679D1995202C094100643E0A /* PersonListViewModel.swift in Sources */,
 				67371895203065000028F786 /* RealmClient.swift in Sources */,
+				6737189E20309FA60028F786 /* ApplicationContext.swift in Sources */,
 				67371890203064680028F786 /* RealmRepository.swift in Sources */,
 				679D1999202CB61B00643E0A /* PersonCellViewModel.swift in Sources */,
 				679D199C202EACC700643E0A /* ListViewModel.swift in Sources */,
