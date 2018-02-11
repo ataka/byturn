@@ -16,6 +16,10 @@ class PersonObject: ModelObject {
     @objc dynamic var order: Int = 0
     var turnAts = List<Date>()
 
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+
     convenience init(id: Int,
                      locationId: Int,
                      name: String,

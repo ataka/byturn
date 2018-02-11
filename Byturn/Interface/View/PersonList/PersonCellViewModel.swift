@@ -9,7 +9,7 @@
 import Foundation
 
 final class PersonCellViewModel {
-    private let person: Person
+    let person: Person
     var isSelected: Bool = false
 
     init(person: Person) {

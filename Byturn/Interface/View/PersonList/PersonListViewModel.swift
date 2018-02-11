@@ -30,6 +30,20 @@ final class PersonListViewModel: ListViewModel {
     // MARK: - Preparation
 
     private static func loadPeople() -> [Person] {
+        let people = load(fromRealm: ())
+        if !people.isEmpty {
+            return people
+        }
+        return load(fromPlist: ())
+    }
+
+    private static func load(fromRealm _: Void) -> [Person] {
+        let client = RealmClient(config: RealmClient.configuration(for: "foo"))
+        let repository = PersonRealmRepository(client: client)
+        return repository.findAll()
+    }
+
+    private static func load(fromPlist _: Void) -> [Person] {
         guard let path = Bundle.main.path(forResource: "Person", ofType: "plist"),
             let plist = NSArray(contentsOfFile: path) as? [[String: Any]] else { return [] }
         return plist.flatMap {
@@ -46,5 +60,9 @@ final class PersonListViewModel: ListViewModel {
     func toggleSelect(person: PersonCellViewModel) {
         person.toggleSelect()
         selectedCount += person.isSelected ? +1 : -1
+
+        let client = RealmClient(config: RealmClient.configuration(for: "foo"))
+        let repository = PersonRealmRepository(client: client)
+        repository.save([person.person])
     }
 }
