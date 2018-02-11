@@ -68,6 +68,7 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
         let person = viewModel.source(at: indexPath)
 
         cell.textLabel?.text = person.name
+        cell.accessoryType = person.isSelected ? .checkmark : .none
 
         return cell
     }
@@ -87,11 +88,9 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
     // MARK: - UISearchResultsUpdating
 
     func updateSearchResults(for searchController: UISearchController) {
-        defer {
-            tableView.reloadData()
-        }
         guard let text = searchController.searchBar.text else { return }
         let keywoards = text.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespaces).filter { !$0.isEmpty }
         viewModel.search(by: keywoards, where: PersonCellViewModel.filterByName(keywords: keywoards))
+        tableView.reloadData()
     }
 }
