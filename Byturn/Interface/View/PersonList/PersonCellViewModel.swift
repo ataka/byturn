@@ -13,12 +13,13 @@ final class PersonCellViewModel {
     let personId: PersonId
     let name: String
     var isSelected: Bool = false
+    let recordCount: Int
 
     init(person: Person) {
         self.person = person
         personId = person.id
         name = person.name
-        isSelected = !person.records.isEmpty
+        recordCount = person.records.count
     }
 
     // MARK: - Selected

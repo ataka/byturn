@@ -70,6 +70,16 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
 
         cell.textLabel?.text = person.name
         cell.accessoryType = person.isSelected ? .checkmark : .none
+        cell.backgroundColor = {
+            switch person.recordCount {
+            case 0: return .white
+            case 1: return .yellow
+            case 2: return .blue
+            case 3: return .green
+            default:
+                return .white
+            }
+        }()
 
         return cell
     }
