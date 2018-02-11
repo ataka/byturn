@@ -17,20 +17,20 @@ final class Person: Model {
     let locationId: LocationId
     let name: String
     let order: PersonOrder
-    private(set) var turnAts: [Date]
+    private(set) var records: [Date]
 
-    init(id: PersonId, locationId: LocationId, name: String, order: PersonOrder, turnAts: [Date]) {
+    init(id: PersonId, locationId: LocationId, name: String, order: PersonOrder, records: [Date]) {
         self.id = id
         self.locationId = locationId
         self.name = name
         self.order = order
-        self.turnAts = turnAts
+        self.records = records
     }
 
     // Action
 
-    func recordTurn(date: Date) {
-        turnAts.append(date)
+    func record(date: Date) {
+        records.append(date)
     }
 
     // Domain Logic

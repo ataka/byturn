@@ -14,7 +14,7 @@ class PersonObject: ModelObject {
     @objc dynamic var locationId: Int = 0
     @objc dynamic var name: String = ""
     @objc dynamic var order: Int = 0
-    var turnAts = List<Date>()
+    var records = List<Date>()
 
     override static func primaryKey() -> String? {
         return "id"
@@ -24,12 +24,12 @@ class PersonObject: ModelObject {
                      locationId: Int,
                      name: String,
                      order: Int,
-                     turnAts: List<Date>) {
+                     records: List<Date>) {
         self.init()
         self.id = id
         self.locationId = locationId
         self.name = name
         self.order = order
-        self.turnAts = turnAts
+        self.records = records
     }
 }

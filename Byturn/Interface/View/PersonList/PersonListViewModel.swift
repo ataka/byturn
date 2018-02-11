@@ -39,7 +39,7 @@ final class PersonListViewModel: ListViewModel {
         let selectedPeople = rawDataSource.filter { $0.isSelected }.map { $0.person }
         let date = Date()
         selectedPeople.forEach {
-            $0.recordTurn(date: date)
+            $0.record(date: date)
         }
         ApplicationContext.shared.personRealmRepository.save(selectedPeople)
     }
