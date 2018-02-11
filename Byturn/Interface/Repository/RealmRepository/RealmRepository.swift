@@ -17,14 +17,20 @@ protocol RealmRepository: RepositoryProtocol {
     func convert(from model: ModelType) -> ModelObjectType?
     func convert(from modelObject: ModelObjectType) -> ModelType?
 
+    func find(byIds ids: [ModelType.IdType]) -> [ModelType]
     func findAll() -> [ModelType]
     func save(_ models: [ModelType])
 }
 
 extension RealmRepository {
+    func find(byIds ids: [ModelType.IdType]) -> [ModelType] {
+        let modelObjects = client.realm.objects(ModelObjectType.self)
+        return modelObjects.flatMap(convert).filter { ids.contains($0.id) }
+    }
+
     func findAll() -> [ModelType] {
         let modelObjects = client.realm.objects(ModelObjectType.self)
-        return modelObjects.flatMap { convert(from: $0) }
+        return modelObjects.flatMap(convert)
     }
 
     func save(_ models: [ModelType]) {
