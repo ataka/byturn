@@ -94,4 +94,10 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
         viewModel.search(by: keywoards, where: PersonCellViewModel.filterByName(keywords: keywoards))
         tableView.reloadData()
     }
+
+    // MARK: - Action
+
+    @IBAction func record(_: Any) {
+        viewModel.record()
+    }
 }

@@ -18,6 +18,7 @@ protocol DataSourceType {
     func numberOfRows(in section: Int) -> Int
     func source(at indexPath: IndexPath) -> Row
     func filter(_ isIncluded: (_ row: Row) throws -> Bool) -> Self
+    func map<T>(_ transform: (_ row: Row) throws -> T) rethrows -> [T]
 }
 
 extension DataSourceType {
@@ -36,6 +37,10 @@ extension DataSourceType {
     func filter(_ isIncluded: (_ row: Row) throws -> Bool) -> Self {
         return Self(sections: sections.flatMap { $0.filter(isIncluded) })
     }
+
+    func map<T>(_ transform: (_ row: Row) throws -> T) rethrows -> [T] {
+        return sections.flatMap { (try? $0.map(transform)) ?? [] }
+    }
 }
 
 protocol DataSectionType {
@@ -47,6 +52,7 @@ protocol DataSectionType {
     var numberOfRows: Int { get }
     func source(at: IndexPath) -> RowType
     func filter(_ isIncluded: (_ row: RowType) throws -> Bool) -> Self?
+    func map<T>(_ transform: (_ row: RowType) throws -> T) rethrows -> [T]
 }
 
 extension DataSectionType {
@@ -61,6 +67,10 @@ extension DataSectionType {
     func filter(_ isIncluded: (_ row: RowType) throws -> Bool) -> Self? {
         let rows = (try? self.rows.filter(isIncluded)) ?? []
         return rows.isEmpty ? nil : Self(name: name, rows: rows)
+    }
+
+    func map<T>(_ transform: (_ row: RowType) throws -> T) rethrows -> [T] {
+        return (try? rows.map(transform)) ?? []
     }
 }
 

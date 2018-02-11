@@ -14,6 +14,7 @@ final class PersonCellViewModel {
 
     init(person: Person) {
         self.person = person
+        isSelected = !person.turnAts.isEmpty
     }
 
     // MARK: - Computed Property

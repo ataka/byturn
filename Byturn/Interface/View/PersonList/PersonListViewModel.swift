@@ -31,7 +31,16 @@ final class PersonListViewModel: ListViewModel {
     func toggleSelect(person: PersonCellViewModel) {
         person.toggleSelect()
         selectedCount += person.isSelected ? +1 : -1
+    }
 
-        ApplicationContext.shared.personRealmRepository.save([person.person])
+    // MARK: - Action
+
+    func record() {
+        let selectedPeople = rawDataSource.filter { $0.isSelected }.map { $0.person }
+        let date = Date()
+        selectedPeople.forEach {
+            $0.recordTurn(date: date)
+        }
+        ApplicationContext.shared.personRealmRepository.save(selectedPeople)
     }
 }

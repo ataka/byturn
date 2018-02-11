@@ -58,7 +58,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="People" id="1kw-x2-7sS">
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FcO-C2-4nO"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="FcO-C2-4nO">
+                            <connections>
+                                <action selector="record:" destination="iaS-0E-a88" id="LTS-Zd-NsY"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="doneButton" destination="FcO-C2-4nO" id="NFU-Xc-7a1"/>

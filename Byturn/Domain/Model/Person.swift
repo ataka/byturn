@@ -29,8 +29,8 @@ final class Person: Model {
 
     // Action
 
-    func recordTurn() {
-        turnAts.append(Date())
+    func recordTurn(date: Date) {
+        turnAts.append(date)
     }
 
     // Domain Logic
