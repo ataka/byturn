@@ -11,7 +11,8 @@ import RxCocoa
 
 final class PersonListViewModel: ListViewModel {
     typealias DataSourceType = DataSource2d<PersonCellViewModel>
-    let dataSource: DataSource2d<PersonCellViewModel>
+    let rawDataSource: DataSource2d<PersonCellViewModel>
+    var dataSource: DataSource2d<PersonCellViewModel>
     let canSave: BehaviorRelay<Bool> = BehaviorRelay(value: false)
     var selectedCount: Int = 0 {
         didSet {
@@ -20,9 +21,10 @@ final class PersonListViewModel: ListViewModel {
     }
 
     init(locationId: LocationId) {
-        dataSource = DataSource2d<PersonCellViewModel>(rows: PersonListViewModel.loadPeople()
+        rawDataSource = DataSource2d<PersonCellViewModel>(rows: PersonListViewModel.loadPeople()
             .filter { $0.locationId == locationId }
             .map(PersonCellViewModel.init))
+        dataSource = rawDataSource
     }
 
     // MARK: - Preparation
