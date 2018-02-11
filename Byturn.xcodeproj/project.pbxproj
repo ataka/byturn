@@ -17,6 +17,8 @@
 		6737189B20309DEC0028F786 /* RepositoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737189A20309DEC0028F786 /* RepositoryManager.swift */; };
 		6737189E20309FA60028F786 /* ApplicationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737189D20309FA60028F786 /* ApplicationContext.swift */; };
 		673718A02030A6B00028F786 /* PersonListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6737189F2030A6B00028F786 /* PersonListService.swift */; };
+		673718A32030AB470028F786 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673718A22030AB470028F786 /* UserDefaultsRepository.swift */; };
+		673718A52030AB9C0028F786 /* AppSettingUserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673718A42030AB9C0028F786 /* AppSettingUserDefaultsRepository.swift */; };
 		679D197C2028CCBC00643E0A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197B2028CCBC00643E0A /* Person.swift */; };
 		679D197E2028CEB600643E0A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197D2028CEB600643E0A /* Model.swift */; };
 		679D19812028CF9E00643E0A /* Id.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D19802028CF9E00643E0A /* Id.swift */; };
@@ -61,6 +63,8 @@
 		6737189A20309DEC0028F786 /* RepositoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryManager.swift; sourceTree = "<group>"; };
 		6737189D20309FA60028F786 /* ApplicationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplicationContext.swift; sourceTree = "<group>"; };
 		6737189F2030A6B00028F786 /* PersonListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonListService.swift; sourceTree = "<group>"; };
+		673718A22030AB470028F786 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		673718A42030AB9C0028F786 /* AppSettingUserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingUserDefaultsRepository.swift; sourceTree = "<group>"; };
 		679D197B2028CCBC00643E0A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		679D197D2028CEB600643E0A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		679D19802028CF9E00643E0A /* Id.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Id.swift; sourceTree = "<group>"; };
@@ -115,6 +119,7 @@
 			children = (
 				6737188C203064230028F786 /* RepositoryProtocol.swift */,
 				6737188E203064500028F786 /* RealmRepository */,
+				673718A12030AB0E0028F786 /* UserDefaultsRepository */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -152,6 +157,15 @@
 				6737189A20309DEC0028F786 /* RepositoryManager.swift */,
 			);
 			path = ApplicationContext;
+			sourceTree = "<group>";
+		};
+		673718A12030AB0E0028F786 /* UserDefaultsRepository */ = {
+			isa = PBXGroup;
+			children = (
+				673718A22030AB470028F786 /* UserDefaultsRepository.swift */,
+				673718A42030AB9C0028F786 /* AppSettingUserDefaultsRepository.swift */,
+			);
+			path = UserDefaultsRepository;
 			sourceTree = "<group>";
 		};
 		679D197A2028CC8A00643E0A /* Model */ = {
@@ -562,6 +576,7 @@
 				679D197C2028CCBC00643E0A /* Person.swift in Sources */,
 				67CC03722028C1910048091C /* AppDelegate.swift in Sources */,
 				6737189B20309DEC0028F786 /* RepositoryManager.swift in Sources */,
+				673718A52030AB9C0028F786 /* AppSettingUserDefaultsRepository.swift in Sources */,
 				67371892203064950028F786 /* PersonRealmRepository.swift in Sources */,
 				679D19812028CF9E00643E0A /* Id.swift in Sources */,
 				67371897203068D90028F786 /* ModelObject.swift in Sources */,
@@ -569,6 +584,7 @@
 				679D19832028D20300643E0A /* Location.swift in Sources */,
 				679D199F202EB47F00643E0A /* DataSourceType.swift in Sources */,
 				679D198B202A08A000643E0A /* LocationListViewModel.swift in Sources */,
+				673718A32030AB470028F786 /* UserDefaultsRepository.swift in Sources */,
 				67371899203069280028F786 /* PersonObject.swift in Sources */,
 				673718A02030A6B00028F786 /* PersonListService.swift in Sources */,
 				679D197E2028CEB600643E0A /* Model.swift in Sources */,

@@ -38,4 +38,8 @@ final class Person: Model {
     static func filterByName(_ person: Person, keywords: [String]) -> Bool {
         return keywords.contains { person.name.localizedStandardContains($0) }
     }
+
+    static func filter(byLocation locationId: LocationId) -> (Person) -> Bool {
+        return { $0.locationId == locationId }
+    }
 }
