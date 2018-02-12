@@ -101,7 +101,7 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
     func updateSearchResults(for searchController: UISearchController) {
         guard let text = searchController.searchBar.text else { return }
         let keywoards = text.trimmingCharacters(in: .whitespacesAndNewlines).components(separatedBy: .whitespaces).filter { !$0.isEmpty }
-        viewModel.search(by: keywoards, where: PersonCellViewModel.filterByName(keywords: keywoards))
+        viewModel.search(by: keywoards, where: PersonCellViewModel.filter(byName: keywoards))
         tableView.reloadData()
     }
 

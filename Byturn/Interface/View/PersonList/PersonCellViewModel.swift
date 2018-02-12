@@ -30,7 +30,7 @@ final class PersonCellViewModel {
 
     // MARK: - Search
 
-    static func filterByName(keywords: [String]) -> (_ personCellViewModel: PersonCellViewModel) -> Bool {
-        return { Person.filterByName($0.person, keywords: keywords) }
+    static func filter(byName keywords: [String]) -> (_ personViewModel: PersonCellViewModel) -> Bool {
+        return { Person.filter(byName: keywords)($0.person) }
     }
 }

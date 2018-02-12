@@ -27,19 +27,27 @@ final class Person: Model {
         self.records = records
     }
 
-    // Action
+    // MARK: - Domain Logic
+
+    // MARK: Action
 
     func record(date: Date) {
         records.append(date)
     }
 
-    // Domain Logic
+    // MARK: Filter
 
-    static func filterByName(_ person: Person, keywords: [String]) -> Bool {
-        return keywords.contains { person.name.localizedStandardContains($0) }
+    /// Filter handler
+    ///
+    /// - Parameter person: Person
+    /// - Returns: true if match the filter condition
+    typealias FilterHandler = (_ person: Person) -> Bool
+
+    static func filter(byName keywords: [String]) -> FilterHandler {
+        return { person in keywords.contains { person.name.localizedStandardContains($0) } }
     }
 
-    static func filter(byLocation locationId: LocationId) -> (Person) -> Bool {
+    static func filter(byLocation locationId: LocationId) -> FilterHandler {
         return { $0.locationId == locationId }
     }
 }
