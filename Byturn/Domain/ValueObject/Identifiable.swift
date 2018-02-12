@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol Identifiable: Equatable {
+protocol Identifiable: Hashable {
     associatedtype IdType: Hashable
     var id: IdType { get }
 }
@@ -16,5 +16,9 @@ protocol Identifiable: Equatable {
 extension Identifiable {
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.id == rhs.id
+    }
+
+    var hashValue: Int {
+        return id.hashValue
     }
 }
