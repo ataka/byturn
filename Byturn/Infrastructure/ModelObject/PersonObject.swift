@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class PersonObject: ModelObject, Identifiable {
+final class PersonObject: ModelObject, Identifiable {
     typealias IdType = Int
 
     @objc dynamic var id: Int = 0
