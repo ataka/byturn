@@ -41,7 +41,7 @@ final class ApplicationContext {
                 let locationId = $0["locationId"] as? Int,
                 let name = $0["name"] as? String,
                 let order = $0["order"] as? PersonOrder else { return nil }
-            return Person(id: PersonId(id: id), locationId: LocationId(id: locationId), name: name, order: order, records: [])
+            return Person(id: PersonId(value: id), locationId: LocationId(value: locationId), name: name, order: order, records: [])
         }
     }
 

@@ -24,8 +24,8 @@ struct PersonRealmRepository: RealmRepository {
     // MARK: - Convert
 
     func convert(from model: Person) -> PersonObject? {
-        return PersonObject(id: model.id.id,
-                            locationId: model.locationId.id,
+        return PersonObject(id: model.id.value,
+                            locationId: model.locationId.value,
                             name: model.name,
                             order: Int(model.order),
                             records: model.records.reduce(into: List<Date>()) { $0.append($1) }
@@ -33,8 +33,8 @@ struct PersonRealmRepository: RealmRepository {
     }
 
     func convert(from modelObject: PersonObject) -> Person? {
-        return Person(id: PersonId(id: modelObject.id),
-                      locationId: LocationId(id: modelObject.locationId),
+        return Person(id: PersonId(value: modelObject.id),
+                      locationId: LocationId(value: modelObject.locationId),
                       name: modelObject.name,
                       order: UInt(modelObject.order),
                       records: Array<Date>(modelObject.records)

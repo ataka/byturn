@@ -8,7 +8,5 @@
 
 import Foundation
 
-protocol Model {
-    associatedtype IdType: Id
-    var id: IdType { get }
+protocol Model: Identifiable {
 }

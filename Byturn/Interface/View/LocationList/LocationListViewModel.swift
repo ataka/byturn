@@ -27,7 +27,7 @@ final class LocationListViewModel: ListViewModel {
         return plist.flatMap {
             guard let id = $0["id"] as? Int,
                 let name = $0["name"] as? String else { return nil }
-            return Location(id: LocationId(id: id), name: name)
+            return Location(id: LocationId(value: id), name: name)
         }
     }
 }
