@@ -9,7 +9,9 @@
 import Foundation
 import RealmSwift
 
-class PersonObject: ModelObject {
+class PersonObject: ModelObject, Identifiable {
+    typealias IdType = Int
+
     @objc dynamic var id: Int = 0
     @objc dynamic var locationId: Int = 0
     @objc dynamic var name: String = ""

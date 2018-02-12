@@ -10,7 +10,7 @@ import Foundation
 
 protocol RealmRepository: RepositoryProtocol {
     associatedtype ModelType: Model
-    associatedtype ModelObjectType: ModelObject
+    associatedtype ModelObjectType: ModelObject, Identifiable
 
     var client: RealmClient { get }
 
@@ -22,10 +22,11 @@ protocol RealmRepository: RepositoryProtocol {
     func save(_ models: [ModelType])
 }
 
-extension RealmRepository {
+extension RealmRepository where ModelType.IdType: IdProtocol, ModelType.IdType.ValueType == ModelObjectType.IdType {
     func find(byIds ids: [ModelType.IdType]) -> [ModelType] {
-        let modelObjects = client.realm.objects(ModelObjectType.self)
-        return modelObjects.flatMap(convert).filter { ids.contains($0.id) }
+        let idValues = ids.map { $0.value }
+        let modelObjects = client.realm.objects(ModelObjectType.self).filter { idValues.contains($0.id) }
+        return modelObjects.flatMap(convert)
     }
 
     func findAll() -> [ModelType] {
