@@ -28,6 +28,10 @@ final class PersonCellViewModel {
         isSelected = !isSelected
     }
 
+    func clearSelection() {
+        isSelected = false
+    }
+
     // MARK: - Search
 
     static func filter(byName keywords: [String]) -> (_ personViewModel: PersonCellViewModel) -> Bool {

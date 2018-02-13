@@ -29,6 +29,7 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
         super.viewDidLoad()
         prepareView()
         prepareRxBinding()
+        prepareRxEvent()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,6 +52,17 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
             .subscribeOn(ConcurrentMainScheduler.instance)
             .observeOn(MainScheduler.instance)
             .bind(to: doneButton.rx.isEnabled)
+            .disposed(by: disposeBag)
+    }
+
+    private func prepareRxEvent() {
+        viewModel.rx_didRecord
+            .subscribeOn(ConcurrentMainScheduler.instance)
+            .observeOn(MainScheduler.instance)
+            .subscribe(onNext: { [unowned self] _ in
+                self.tableView.reloadData()
+
+            })
             .disposed(by: disposeBag)
     }
 

@@ -9,12 +9,14 @@
 import Foundation
 
 struct PersonListService {
+    typealias RecordCompletionHandler = ([PersonId]) -> Void
+
     static func showPersonList(locationId: LocationId) -> [Person] {
         let allPeople = ApplicationContext.shared.personRealmRepository.findAll()
         return allPeople.filter(Person.filter(byLocation: locationId))
     }
 
-    static func record(personIds: [PersonId]) {
+    static func record(personIds: [PersonId], comletionHandler: RecordCompletionHandler) {
         let personRepository = ApplicationContext.shared.personRealmRepository
         let people = personRepository.find(byIds: personIds)
         let date = Date()
@@ -22,5 +24,7 @@ struct PersonListService {
             $0.record(date: date)
         }
         personRepository.save(people)
+
+        comletionHandler(personIds)
     }
 }
