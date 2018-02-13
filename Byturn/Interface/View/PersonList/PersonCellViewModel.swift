@@ -13,12 +13,18 @@ final class PersonCellViewModel {
     let personId: PersonId
     let name: String
     var isSelected: Bool = false
-    let recordCount: Int
+    var recordCount: Int
 
     init(person: Person) {
         self.person = person
         personId = person.id
         name = person.name
+        recordCount = person.records.count
+    }
+
+    // MARK: - Update
+
+    func update(by person: Person) {
         recordCount = person.records.count
     }
 

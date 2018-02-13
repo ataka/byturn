@@ -9,7 +9,7 @@
 import Foundation
 
 struct PersonListService {
-    typealias RecordCompletionHandler = ([PersonId]) -> Void
+    typealias RecordCompletionHandler = ([Person]) -> Void
 
     static func showPersonList(locationId: LocationId) -> [Person] {
         let allPeople = ApplicationContext.shared.personRealmRepository.findAll()
@@ -25,6 +25,6 @@ struct PersonListService {
         }
         personRepository.save(people)
 
-        comletionHandler(personIds)
+        comletionHandler(people)
     }
 }
