@@ -10,7 +10,7 @@ import Foundation
 
 typealias PersonIndex = UInt
 
-final class Person: Model {
+final class Person: Model, Decodable {
     typealias IdType = PersonId
 
     let id: PersonId
@@ -19,12 +19,35 @@ final class Person: Model {
     let index: PersonIndex
     private(set) var records: [Date]
 
+    // MARK: - Initializer
+
     init(id: PersonId, locationId: LocationId, name: String, index: PersonIndex, records: [Date]) {
         self.id = id
         self.locationId = locationId
         self.name = name
         self.index = index
         self.records = records
+    }
+
+    // MARK: - Decodable
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case locationId
+        case name
+        case index
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        let idValue = try container.decode(Int.self, forKey: .id)
+        id = PersonId(value: idValue)
+        let locationIdValue = try container.decode(Int.self, forKey: .locationId)
+        locationId = LocationId(value: locationIdValue)
+        name = try container.decode(String.self, forKey: .name)
+        index = try container.decode(PersonIndex.self, forKey: .index)
+        records = []
     }
 
     // MARK: - Domain Logic

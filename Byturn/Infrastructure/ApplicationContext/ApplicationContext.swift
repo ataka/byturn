@@ -34,15 +34,10 @@ final class ApplicationContext {
     }
 
     private func loadFromPlist() -> [Person] {
-        guard let path = Bundle.main.path(forResource: "Person", ofType: "plist"),
-            let plist = NSArray(contentsOfFile: path) as? [[String: Any]] else { return [] }
-        return plist.flatMap {
-            guard let id = $0["id"] as? Int,
-                let locationId = $0["locationId"] as? Int,
-                let name = $0["name"] as? String,
-                let index = $0["index"] as? PersonIndex else { return nil }
-            return Person(id: PersonId(value: id), locationId: LocationId(value: locationId), name: name, index: index, records: [])
-        }
+        guard let url = Bundle.main.url(forResource: "Person", withExtension: "plist"),
+            let data = try? Data(contentsOf: url),
+            let people = try? PropertyListDecoder().decode([Person].self, from: data) else { return [] }
+        return people
     }
 
     // MARK: - Repository Utils
