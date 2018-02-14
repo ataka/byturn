@@ -13,7 +13,7 @@ struct PersonListService {
 
     static func showPersonList(locationId: LocationId) -> [Person] {
         let allPeople = ApplicationContext.shared.personRealmRepository.findAll()
-        return allPeople.filter(Person.filter(byLocation: locationId))
+        return allPeople.filter(Person.filter(byLocation: locationId)).sorted(by: Person.sort(byIndex: ()))
     }
 
     static func record(personIds: [PersonId], comletionHandler: RecordCompletionHandler) {

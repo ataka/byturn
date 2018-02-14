@@ -18,4 +18,14 @@ final class Location: Model {
         self.id = id
         self.name = name
     }
+
+    // MARK: - Domain Logic
+
+    // MARK: Sort
+
+    typealias SortHandler = (_ lhs: Location, _ rhs: Location) -> Bool
+
+    static func sort(byId _: Void) -> SortHandler {
+        return { $0.id.value < $1.id.value }
+    }
 }

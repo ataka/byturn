@@ -50,4 +50,12 @@ final class Person: Model {
     static func filter(byLocation locationId: LocationId) -> FilterHandler {
         return { $0.locationId == locationId }
     }
+
+    // MARK: Sort
+
+    typealias SortHandler = (_ lhs: Person, _ rhs: Person) -> Bool
+
+    static func sort(byIndex _: Void) -> SortHandler {
+        return { $0.order < $1.order }
+    }
 }
