@@ -26,6 +26,6 @@ final class Location: Model {
     typealias SortHandler = (_ lhs: Location, _ rhs: Location) -> Bool
 
     static func sort(byId _: Void) -> SortHandler {
-        return { $0.id.value < $1.id.value }
+        return { $0.id < $1.id }
     }
 }

@@ -8,6 +8,8 @@
 
 import Foundation
 
+// MARK: - Id Protocol
+
 protocol IdProtocol: Hashable {
     associatedtype ValueType: Hashable
     var value: ValueType { get }
@@ -25,12 +27,25 @@ extension IdProtocol where ValueType == Int {
     }
 }
 
-struct LocationId: IdProtocol {
+// MARK: - Comparable Id Protocol
+
+protocol ComparableIdProtocol: IdProtocol, Comparable {
+}
+
+extension ComparableIdProtocol where ValueType == Int {
+    static func < (lhs: Self, rhs: Self) -> Bool {
+        return lhs.value < rhs.value
+    }
+}
+
+// MARK: - Struct
+
+struct LocationId: ComparableIdProtocol {
     typealias ValueType = Int
     let value: Int
 }
 
-struct PersonId: IdProtocol {
+struct PersonId: ComparableIdProtocol {
     typealias ValueType = Int
     let value: Int
 }
