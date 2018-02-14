@@ -27,7 +27,7 @@ struct PersonRealmRepository: RealmRepository {
         return PersonObject(id: model.id.value,
                             locationId: model.locationId.value,
                             name: model.name,
-                            order: Int(model.order),
+                            index: Int(model.index),
                             records: model.records.reduce(into: List<Date>()) { $0.append($1) }
         )
     }
@@ -36,7 +36,7 @@ struct PersonRealmRepository: RealmRepository {
         return Person(id: PersonId(value: modelObject.id),
                       locationId: LocationId(value: modelObject.locationId),
                       name: modelObject.name,
-                      order: UInt(modelObject.order),
+                      index: UInt(modelObject.index),
                       records: Array<Date>(modelObject.records)
         )
     }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-typealias PersonOrder = UInt
+typealias PersonIndex = UInt
 
 final class Person: Model {
     typealias IdType = PersonId
@@ -16,14 +16,14 @@ final class Person: Model {
     let id: PersonId
     let locationId: LocationId
     let name: String
-    let order: PersonOrder
+    let index: PersonIndex
     private(set) var records: [Date]
 
-    init(id: PersonId, locationId: LocationId, name: String, order: PersonOrder, records: [Date]) {
+    init(id: PersonId, locationId: LocationId, name: String, index: PersonIndex, records: [Date]) {
         self.id = id
         self.locationId = locationId
         self.name = name
-        self.order = order
+        self.index = index
         self.records = records
     }
 
@@ -56,6 +56,6 @@ final class Person: Model {
     typealias SortHandler = (_ lhs: Person, _ rhs: Person) -> Bool
 
     static func sort(byIndex _: Void) -> SortHandler {
-        return { $0.order < $1.order }
+        return { $0.index < $1.index }
     }
 }

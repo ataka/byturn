@@ -15,7 +15,7 @@ final class PersonObject: ModelObject, Identifiable {
     @objc dynamic var id: Int = 0
     @objc dynamic var locationId: Int = 0
     @objc dynamic var name: String = ""
-    @objc dynamic var order: Int = 0
+    @objc dynamic var index: Int = 0
     var records = List<Date>()
 
     override static func primaryKey() -> String? {
@@ -25,13 +25,13 @@ final class PersonObject: ModelObject, Identifiable {
     convenience init(id: Int,
                      locationId: Int,
                      name: String,
-                     order: Int,
+                     index: Int,
                      records: List<Date>) {
         self.init()
         self.id = id
         self.locationId = locationId
         self.name = name
-        self.order = order
+        self.index = index
         self.records = records
     }
 }
