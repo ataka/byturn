@@ -22,12 +22,9 @@ final class LocationListViewModel: ListViewModel {
     // Preparation
 
     private static func loadLocation() -> [Location] {
-        guard let path = Bundle.main.path(forResource: "Location", ofType: "plist"),
-            let plist = NSArray(contentsOfFile: path) as? [[String: Any]] else { return [] }
-        return plist.flatMap {
-            guard let id = $0["id"] as? Int,
-                let name = $0["name"] as? String else { return nil }
-            return Location(id: LocationId(value: id), name: name)
-        }
+        guard let url = Bundle.main.url(forResource: "Location", withExtension: "plist"),
+            let data = try? Data(contentsOf: url),
+            let locations = try? PropertyListDecoder().decode([Location].self, from: data) else { return [] }
+        return locations
     }
 }
