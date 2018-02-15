@@ -10,7 +10,7 @@ import Foundation
 
 struct PersonPlistRepository: PlistRepository {
     let bundle: Bundle
-    let resource: String = "person"
+    let resource: String = "Person"
 
     func findAll() -> [Person] {
         guard let data = data,
