@@ -22,6 +22,7 @@
 		673718A72031992F0028F786 /* IdProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673718A62031992F0028F786 /* IdProtocol.swift */; };
 		673718AA2034A2120028F786 /* PlistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673718A92034A2120028F786 /* PlistRepository.swift */; };
 		673718AC2034A2640028F786 /* LocationPlistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673718AB2034A2640028F786 /* LocationPlistRepository.swift */; };
+		673718AE203541790028F786 /* PersonPlistRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673718AD203541790028F786 /* PersonPlistRepository.swift */; };
 		679D197C2028CCBC00643E0A /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197B2028CCBC00643E0A /* Person.swift */; };
 		679D197E2028CEB600643E0A /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D197D2028CEB600643E0A /* Model.swift */; };
 		679D19812028CF9E00643E0A /* Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679D19802028CF9E00643E0A /* Identifiable.swift */; };
@@ -71,6 +72,7 @@
 		673718A62031992F0028F786 /* IdProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdProtocol.swift; sourceTree = "<group>"; };
 		673718A92034A2120028F786 /* PlistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlistRepository.swift; sourceTree = "<group>"; };
 		673718AB2034A2640028F786 /* LocationPlistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPlistRepository.swift; sourceTree = "<group>"; };
+		673718AD203541790028F786 /* PersonPlistRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonPlistRepository.swift; sourceTree = "<group>"; };
 		679D197B2028CCBC00643E0A /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		679D197D2028CEB600643E0A /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		679D19802028CF9E00643E0A /* Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Identifiable.swift; sourceTree = "<group>"; };
@@ -180,6 +182,7 @@
 			children = (
 				673718A92034A2120028F786 /* PlistRepository.swift */,
 				673718AB2034A2640028F786 /* LocationPlistRepository.swift */,
+				673718AD203541790028F786 /* PersonPlistRepository.swift */,
 			);
 			path = PlistRepository;
 			sourceTree = "<group>";
@@ -590,6 +593,7 @@
 			files = (
 				679D1993202B5D4000643E0A /* PersonListTableViewController.swift in Sources */,
 				679D1989202A057400643E0A /* LocationListTableViewController.swift in Sources */,
+				673718AE203541790028F786 /* PersonPlistRepository.swift in Sources */,
 				679D197C2028CCBC00643E0A /* Person.swift in Sources */,
 				67CC03722028C1910048091C /* AppDelegate.swift in Sources */,
 				6737189B20309DEC0028F786 /* RepositoryManager.swift in Sources */,

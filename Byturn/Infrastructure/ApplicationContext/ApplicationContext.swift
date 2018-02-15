@@ -27,17 +27,10 @@ final class ApplicationContext {
         }
 
         // Initialize Realm
-        let people = loadFromPlist()
+        let people = PersonPlistRepository(bundle: Bundle.main).findAll()
         personRealmRepository.save(people)
 
         appSettingUserDefaultsRepository.save(isRealmInitialized: true)
-    }
-
-    private func loadFromPlist() -> [Person] {
-        guard let url = Bundle.main.url(forResource: "Person", withExtension: "plist"),
-            let data = try? Data(contentsOf: url),
-            let people = try? PropertyListDecoder().decode([Person].self, from: data) else { return [] }
-        return people
     }
 
     // MARK: - Repository Utils
