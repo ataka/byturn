@@ -35,9 +35,9 @@ final class PersonListViewModel: ListViewModel {
 
     // MARK: - Select
 
-    func toggleSelect(person: PersonCellViewModel) {
-        person.toggleSelect()
-        selectedCount += person.isSelected ? +1 : -1
+    func toggleSelection(personViewModel: PersonCellViewModel) {
+        personViewModel.toggleSelect()
+        selectedCount += personViewModel.isSelected ? +1 : -1
     }
 
     // MARK: - Action

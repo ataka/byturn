@@ -78,12 +78,12 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Person", for: indexPath)
-        let person = viewModel.source(at: indexPath)
+        let personViewModel = viewModel.source(at: indexPath)
 
-        cell.textLabel?.text = person.name
-        cell.accessoryType = person.isSelected ? .checkmark : .none
+        cell.textLabel?.text = personViewModel.name
+        cell.accessoryType = personViewModel.isSelected ? .checkmark : .none
         cell.backgroundColor = {
-            switch person.recordCount {
+            switch personViewModel.recordCount {
             case 0: return .white
             case 1: return .yellow
             case 2: return .blue
@@ -98,11 +98,11 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.cellForRow(at: indexPath) else { return }
-        let person = viewModel.source(at: indexPath)
+        let personViewModel = viewModel.source(at: indexPath)
 
         cell.accessoryType = {
-            viewModel.toggleSelect(person: person)
-            return person.isSelected ? .checkmark : .none
+            viewModel.toggleSelection(personViewModel: personViewModel)
+            return personViewModel.isSelected ? .checkmark : .none
         }()
 
         tableView.deselectRow(at: indexPath, animated: true)
