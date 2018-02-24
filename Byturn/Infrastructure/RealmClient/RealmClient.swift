@@ -10,15 +10,23 @@ import Foundation
 import RealmSwift
 
 struct RealmClient {
-    let realm: Realm
+    private let config: Realm.Configuration
+
+    // MARK: - Initialization
 
     init(config: Realm.Configuration) {
-        realm = try! Realm(configuration: config)
+        self.config = config
     }
 
     static func configuration(for identifier: String) -> Realm.Configuration {
         var config = Realm.Configuration()
         config.fileURL = config.fileURL!.deletingLastPathComponent().appendingPathComponent("\(identifier).realm")
         return config
+    }
+
+    // MARK: - Realm
+
+    var realm: Realm {
+        return try! Realm(configuration: config)
     }
 }
