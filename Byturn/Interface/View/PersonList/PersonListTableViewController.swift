@@ -13,20 +13,23 @@ import UIKit
 class PersonListTableViewController: UITableViewController, UISearchResultsUpdating {
     @IBOutlet var doneButton: UIBarButtonItem!
 
+    var locationId: LocationId!
+
     private let disposeBag = DisposeBag()
     private var viewModel: PersonListViewModel!
 
     // MARK: - Life Cycle
 
-    static func instantiateViewController(viewModel: PersonListViewModel) -> PersonListTableViewController {
-        let storyboard = UIStoryboard(name: "PersonList", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "PersonList") as! PersonListTableViewController
-        viewController.viewModel = viewModel
+    static func instantiateViewController(locationId: LocationId) -> PersonListTableViewController {
+        let viewController = UIStoryboard(name: "PersonList", bundle: nil)
+            .instantiateViewController(withIdentifier: "PersonList") as! PersonListTableViewController
+        viewController.locationId = locationId
         return viewController
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel = PersonListViewModel(locationId: locationId)
         prepareView()
         prepareRxBinding()
         prepareRxEvent()
@@ -61,7 +64,6 @@ class PersonListTableViewController: UITableViewController, UISearchResultsUpdat
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] _ in
                 self.tableView.reloadData()
-
             })
             .disposed(by: disposeBag)
     }

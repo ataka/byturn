@@ -42,9 +42,8 @@ final class LocationListTableViewController: UITableViewController {
     }
 
     override func tableView(_: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let locationId = self.viewModel.source(at: indexPath).id
-        let viewModel = PersonListViewModel(locationId: locationId)
-        let viewController = PersonListTableViewController.instantiateViewController(viewModel: viewModel)
+        let location = viewModel.source(at: indexPath)
+        let viewController = PersonListTableViewController.instantiateViewController(locationId: location.id)
         navigationController?.pushViewController(viewController, animated: true)
     }
 }
